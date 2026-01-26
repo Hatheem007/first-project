@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Sky</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div id="one">
+        <h1> book sky</h1>
+    </div>
+    <div class="two">
+        <div class="one">
+            <h2>Money is always ultimate</h2>
+            <h5>hatheem</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium rerum perferendis distinctio ut in
+                dicta ipsam officia cum quaerat, ea, labore qui, laboriosam vero explicabo vitae quisquam. Enim
+                accusamus consequuntur aut reiciendis odio culpa cupiditate error velit tenetur deserunt quis ducimus
+                illum voluptatibus earum vero neque aliquam, vitae repellendus autem?</p>
+            <button type="button" class="del" onclick="dele(this)">delete</button>
+        </div>
+        <button class="plus">+</button>
+        <div class="overlay"></div>
+    </div>
+    <div class="box">
+
+        <h1>Book sky</h1>
+        <table>
+            <tr>
+                <td><label>Book Title</label></td>
+                <td><input type="text" placeholder="Enter book title" class="inp1"></td>
+            </tr>
+            <tr>
+                <td><label>Book Author</label></td>
+                <td><input type="text" placeholder="Enter Author Name" class="inp2"></td>
+            </tr>
+
+
+
+
+        </table>
+        <textarea placeholder="Enter a Description" class="txt"></textarea>
+        <button type="button" class="btn">ADD</button>
+        <button class="cancel">CANCEL</button>
+    </div>
+</body>
+
+</html>
+<script>
+    var plus = document.querySelector(".plus")
+    var overlay = document.querySelector(".overlay")
+    var box = document.querySelector(".box")
+    var inp1 = document.querySelector(".inp1")
+    var inp2 = document.querySelector(".inp2")
+    var txt = document.querySelector(".txt")
+    var cancele = document.querySelector(".cancel")
+    var one = document.querySelector(".one")
+    var two = document.querySelector(".two")
+    plus.addEventListener("click", function () {
+        overlay.style.display = "block"
+        box.style.display = "block"
+    })
+    cancele.addEventListener("click", function (event) {
+        event.preventDefault()
+        overlay.style.display = "none"
+        box.style.display = "none"
+    })
+    var add = document.querySelector(".btn")
+
+    add.addEventListener("click", function () {
+        var divi = document.createElement("div")
+        divi.setAttribute("class", "one")
+        divi.innerHTML = `<h2>${inp1.value}</h2>
+          <h5>${inp2.value}</h5>
+<p>${txt.value}</p>    
+<button type='button' class="del"  onclick="dele(this)">delete</button>`
+        two.append(divi)
+        overlay.style.display = "none"
+        box.style.display = "none"
+
+    })
+    var del = document.querySelector(".del")
+    function dele(btn) {
+        btn.closest("div").remove()
+    }
+</script>
